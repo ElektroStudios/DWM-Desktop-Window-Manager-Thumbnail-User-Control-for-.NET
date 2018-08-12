@@ -1,6 +1,6 @@
 ﻿# **ElektroDwmThumbnail**
 
-**ElektroDwmThumbnail** is a .NET user-control written in Vb.NET that can be used to create a dynamic real-time preview thumbnail for any window. It wraps some DWM API functions and is delivered as a user-control for friendly use.
+**ElektroDwmThumbnail** is a .NET user-control written in VB.NET that can be used to create a dynamic real-time preview thumbnail for any window. It wraps some DWM API functions and is delivered as a user-control for friendly use.
 
 See the video below if you have any doubts...
 

@@ -8,13 +8,13 @@ See the video below if you have any doubts...
 
 Usage example in C#:
 
-	  // Register a DWM thumbnail for the main window of Notepad process.
-	  Process pr = Process.GetProcessesByName("Notepad").SingleOrDefault();
-	  IntPtr? hWnd = pr?.MainWindowHandle;
-	  ElektroDwmThumbnail1.RegisterThumbnail(hWnd);
+    // Register a DWM thumbnail for the main window of Notepad process.
+    Process pr = Process.GetProcessesByName("Notepad").SingleOrDefault();
+    IntPtr? hWnd = pr?.MainWindowHandle;
+    ElektroDwmThumbnail1.RegisterThumbnail(hWnd);
 
-	  // Unregister the DWM thumbnail.
-	  ElektroDwmThumbnail1.UnregisterThumbnail();
+    // Unregister the DWM thumbnail.
+    ElektroDwmThumbnail1.UnregisterThumbnail();
   
 Usage example in VB.NET:
 

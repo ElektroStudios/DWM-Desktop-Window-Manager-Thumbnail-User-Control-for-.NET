@@ -1,0 +1,1663 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ElektroDwmThumbnail
+</name>
+</assembly>
+<members>
+<member name="T:My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:ElektroKit.Core.Extensions.Control.ControlExtensions">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Contains custom extension methods to use with <see cref="T:System.Windows.Forms.Control"/>.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Core.Extensions.Control.ControlExtensions.GetBoundsRelativeToForm(System.Windows.Forms.Control)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets the bounds of the source <see cref="T:System.Windows.Forms.Control"/> relatively to its parent <see cref="T:System.Windows.Forms.Form"/>.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <example> This is a code example.
+ <code>
+ Dim ctrl As New Label
+ Dim rc As Rectangle = ctrl.GetBoundsRelativeToForm()
+ Console.WriteLine(rc.ToString())
+ </code>
+ </example>
+ ----------------------------------------------------------------------------------------------------
+ <param name="sender">
+ The source <see cref="T:System.Windows.Forms.Control"/>.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ The bounds of the source <see cref="T:System.Windows.Forms.Control"/> relatively to its parent <see cref="T:System.Windows.Forms.Form"/>.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="T:ElektroKit.Core.Imaging.Tools.ImageUtil">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Contains image related utilities.
+ </summary>
+ ----------------------------------------------------------------------------------------------------   
+</member>
+<member name="M:ElektroKit.Core.Imaging.Tools.ImageUtil.#ctor">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Prevents a default instance of the <see cref="T:ElektroKit.Core.Imaging.Tools.ImageUtil"/> class from being created.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Core.Imaging.Tools.ImageUtil.GetRealWindowRect(System.IntPtr)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets the (non-client) <see cref="T:System.Drawing.Rectangle"/> of a window.
+ <para></para>
+ This method supports a borderless <c>Windows 10</c> window.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="hwnd">
+ A handle to the window.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ The resulting (non-client) <see cref="T:System.Drawing.Rectangle"/> of the window.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Core.Imaging.Tools.ImageUtil.GetRealWindowRect(System.Windows.Forms.IWin32Window)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets the (non-client) <see cref="T:System.Drawing.Rectangle"/> of a window.
+ <para></para>
+ This method supports a borderless <c>Windows 10</c> window.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="window">
+ The window.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ The resulting (non-client) <see cref="T:System.Drawing.Rectangle"/> of the window.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Core.Imaging.Tools.ImageUtil.GetRealWindowRect(System.Windows.Forms.Form)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets the (non-client) <see cref="T:System.Drawing.Rectangle"/> of a window.
+ <para></para>
+ This method supports a borderless <c>Windows 10</c> window.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="form">
+ The Form.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ The resulting (non-client) <see cref="T:System.Drawing.Rectangle"/> of the window.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="T:ElektroKit.Core.System.Tools.WindowsUtil">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Contains operating system info.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Core.System.Tools.WindowsUtil.#ctor">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Prevents a default instance of the <see cref="T:ElektroKit.Core.System.Tools.WindowsUtil"/> class from being created.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="P:ElektroKit.Core.System.Tools.WindowsUtil.IsWin10">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets a value that determines whether the current operating system is <c>Windows 10</c>.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <example> This is a code example.
+ <code>
+ If IsWin10 Then
+     Throw New PlatformNotSupportedException("This application cannot run under Windows 10.")
+ End If
+ </code>
+ </example>
+ ----------------------------------------------------------------------------------------------------
+ <value>
+ A value that determines whether the current operating system is <c>Windows 10</c>.
+ </value>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Core.System.Tools.WindowsUtil.InternalIsWin10">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Determines whether the current operating system is <c>Windows 10</c>.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ <see href="https://msdn.microsoft.com/es-es/library/windows/desktop/dn424972%28v=vs.85%29.aspx"/>
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ <see langword="True"/> if the current operating system is <c>Windows 10</c>; otherwise, <see langword="False"/>.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="T:ElektroKit.Interop.Win32.Types.DwmThumbnailProperties">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Specifies Desktop Window Manager (DWM) thumbnail properties. 
+ <para></para>
+ Used by the <see cref="M:ElektroKit.Interop.Win32.NativeMethods.DwmUpdateThumbnailProperties(System.IntPtr,ElektroKit.Interop.Win32.Types.DwmThumbnailProperties@)"/> function.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ <see href="https://docs.microsoft.com/en-us/windows/desktop/api/dwmapi/ns-dwmapi-_dwm_thumbnail_properties"/>
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.Interop.Win32.Types.DwmThumbnailProperties.Flags">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ A bitwise combination of DWM thumbnail constant values that indicates which members of this structure are set.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.Interop.Win32.Types.DwmThumbnailProperties.DstRectangle">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ The area in the destination window where the thumbnail will be rendered.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.Interop.Win32.Types.DwmThumbnailProperties.SrcRectangle">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ The region of the source window to use as the thumbnail. By default, the entire window is used as the thumbnail.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.Interop.Win32.Types.DwmThumbnailProperties.Opacity">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ The opacity with which to render the thumbnail. 
+ <para></para>
+ 0 is fully transparent while 255 is fully opaque. 
+ <para></para>
+ The default value is 255.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.Interop.Win32.Types.DwmThumbnailProperties.Visible">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ <see langword="True"/> to make the thumbnail visible; otherwise, <see langword="False"/>. 
+ <para></para>
+ The default is <see langword="False"/>.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.Interop.Win32.Types.DwmThumbnailProperties.SourceClientAreaOnly">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ <see langword="True"/> to use only the thumbnail source's client area; otherwise, <see langword="False"/>. 
+ <para></para>
+ The default is <see langword="False"/>.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="T:ElektroKit.Interop.Win32.Types.NativeRectangle">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Defines the coordinates of the upper-left and lower-right corners of a rectangle.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ <see href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd162897%28v=vs.85%29.aspx"/>
+ <para></para>
+ <see href="http://www.pinvoke.net/default.aspx/Structures/rect.html"/>
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="P:ElektroKit.Interop.Win32.Types.NativeRectangle.Left">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets or sets the x-coordinate of the upper-left corner of the rectangle.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <value>
+ The x-coordinate of the upper-left corner of the rectangle.
+ </value>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="P:ElektroKit.Interop.Win32.Types.NativeRectangle.Top">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets or sets the y-coordinate of the upper-left corner of the rectangle.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <value>
+ The y-coordinate of the upper-left corner of the rectangle.
+ </value>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="P:ElektroKit.Interop.Win32.Types.NativeRectangle.Right">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets or sets the x-coordinate of the lower-right corner of the rectangle.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <value>
+ The x-coordinate of the lower-right corner of the rectangle.
+ </value>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="P:ElektroKit.Interop.Win32.Types.NativeRectangle.Bottom">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets or sets the y-coordinate of the lower-right corner of the rectangle.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <value>
+ The y-coordinate of the lower-right corner of the rectangle.
+ </value>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.Types.NativeRectangle.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Initializes a new instance of the <see cref="T:ElektroKit.Interop.Win32.Types.NativeRectangle"/> struct.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="left">
+ The x-coordinate of the upper-left corner of the rectangle.
+ </param>
+ 
+ <param name="top">
+ The y-coordinate of the upper-left corner of the rectangle.
+ </param>
+ 
+ <param name="right">
+ The x-coordinate of the lower-right corner of the rectangle.
+ </param>
+ 
+ <param name="bottom">
+ The y-coordinate of the lower-right corner of the rectangle.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.Types.NativeRectangle.#ctor(System.Drawing.Rectangle)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Initializes a new instance of the <see cref="T:ElektroKit.Interop.Win32.Types.NativeRectangle"/> struct.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="rect">
+ The <see cref="T:System.Drawing.Rectangle"/>.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.Types.NativeRectangle.op_Implicit(ElektroKit.Interop.Win32.Types.NativeRectangle)~System.Drawing.Rectangle">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Performs an implicit conversion from <see cref="T:ElektroKit.Interop.Win32.Types.NativeRectangle"/> to <see cref="T:System.Drawing.Rectangle"/>.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="rect">
+ The <see cref="T:ElektroKit.Interop.Win32.Types.NativeRectangle"/>.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ The resulting <see cref="T:System.Drawing.Rectangle"/>.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.Types.NativeRectangle.op_Implicit(System.Drawing.Rectangle)~ElektroKit.Interop.Win32.Types.NativeRectangle">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Performs an implicit conversion from <see cref="T:System.Drawing.Rectangle"/> to <see cref="T:ElektroKit.Interop.Win32.Types.NativeRectangle"/>.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="rect">
+ The <see cref="T:System.Drawing.Rectangle"/>.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ The resulting <see cref="T:ElektroKit.Interop.Win32.Types.NativeRectangle"/>.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="T:ElektroKit.Interop.Win32.Enums.DwmThumbnailPropertiesFlags">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Specifies flags used by the <see cref="T:ElektroKit.Interop.Win32.Types.DwmThumbnailProperties"/> structure to 
+ indicate which of its members contain valid information.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ <see href="https://docs.microsoft.com/en-us/windows/desktop/dwm/dwm-tnp-constants"/>
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmThumbnailPropertiesFlags.RectDestination">
+ <summary>
+ A value for the rcDestination member has been specified.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmThumbnailPropertiesFlags.RectSource">
+ <summary>
+ A value for the rcSource member has been specified.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmThumbnailPropertiesFlags.Opacity">
+ <summary>
+ A value for the opacity member has been specified.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmThumbnailPropertiesFlags.Visible">
+ <summary>
+ A value for the fVisible member has been specified.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmThumbnailPropertiesFlags.SourceClientAreaOnly">
+ <summary>
+ A value for the fSourceClientAreaOnly member has been specified.
+ </summary>
+</member>
+<member name="T:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Specifies the attribute to set when calling the <see cref="!:NativeMethods.DwmSetWindowAttribute"/> function.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ <see href="https://msdn.microsoft.com/en-us/library/windows/desktop/bb762108(v=vs.85).aspx"/>
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.NcRenderingEnabled">
+ <summary>
+ Is non-client rendering enabled/disabled.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.NcRenderingPolicy">
+ <summary>
+ Non-client rendering policy.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.TransitionsForceDisabled">
+ <summary>
+ Potentially enable/forcibly disable transitions.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.AllowNcPaint">
+ <summary>
+ Allow contents rendered In the non-client area To be visible On the DWM-drawn frame.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.CaptionButtonBounds">
+ <summary>
+ Bounds Of the caption button area In window-relative space.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.NonClientRtlLayout">
+ <summary>
+ Set the non-client content RTL mirrored.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.ForceIconicRepresentation">
+ <summary>
+ Force this window To display iconic thumbnails.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.Flip3DPolicy">
+ <summary>
+ Designates how Flip3D will treat the window.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.ExtendedFrameBounds">
+ <summary>
+ Gets the extended frame bounds rectangle In screen space.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.HasIconicBitmap">
+ <summary>
+ Indicates an available bitmap When there Is no better thumbnail representation.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.DisallowPeek">
+ <summary>
+ Don't invoke Peek on the window.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.ExcludedFromPeek">
+ <summary>
+ Set LivePreview exclusion information.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.Cloak">
+ <summary>
+ Cloaks or uncloaks the window.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.Cloaked">
+ <summary>
+ Gets the cloaked state Of the window.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute.FreezeRepresentation">
+ <summary>
+ Force this window To freeze the thumbnail without live update.
+ </summary>
+</member>
+<member name="T:ElektroKit.Interop.Win32.Enums.HResult">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Specifies error conditions and warning conditions about the success or failure of a method or function call.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ Wikipedia: <see href="http://en.wikipedia.org/wiki/HRESULT"/> class.
+ <para></para>
+ MSDN guidelines: <see href="https://msdn.microsoft.com/en-us/library/windows/desktop/ff485842%28v=vs.85%29.aspx"/> class.
+ <para></para>
+ List of HRESULT codes: <see href="https://msdn.microsoft.com/en-us/library/cc704587.aspx"/> class.
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.S_OK">
+ <summary>
+ Success.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.S_FALSE">
+ <summary>
+ Success.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.E_ACCESSDENIED">
+ <summary>
+ Access denied.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.E_FAIL">
+ <summary>
+ Unspecified Error.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.E_INVALIDARG">
+ <summary>
+ Invalid parameter value.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.E_ELEMENTNOTFOUND">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.E_OUTOFMEMORY">
+ <summary>
+ Out Of memory.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.E_POINTER">
+ <summary>
+ NULL was passed incorrectly For a pointer value.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.E_UNEXPECTED">
+ <summary>
+ Unexpected condition.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.E_ABORT">
+ <summary>
+ Operation aborted.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.E_HANDLE">
+ <summary>
+ Handle that is not valid.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.E_NOTIMPL">
+ <summary>
+ Not implemented.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.E_PENDING">
+<summary>
+The data necessary to complete this operation is not yet available.
+</summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.DISP_E_OVERFLOW">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.DISP_E_DIVBYZERO">
+ <summary>
+ A divide by zero error.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.E_BOUNDS">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.E_CHANGED_STATE">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.ERROR_BAD_FORMAT">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.ERROR_ARITHMETIC_OVERFLOW">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.ERROR_PATH_NOT_FOUND">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.ERROR_FILE_NOT_FOUND">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.ERROR_FILENAME_EXCED_RANGE">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.ERROR_STACK_OVERFLOW">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.ERROR_SHARING_VIOLATION">
+ <summary>
+ The process cannot access the file because it is being used by another process.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.FUSION_E_INVALID_NAME">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.FUSION_E_REF_DEF_MISMATCH">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.NTE_FAIL">
+ <summary>
+ Error wrapped in <see cref="T:System.Security.Cryptography.CryptographicException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.REGDB_E_CLASSNOTREG">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.RO_E_CLOSED">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.TYPE_E_TYPEMISMATCH">
+ <summary>
+ Error wrapped in <see cref="T:System.InvalidCastException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.TYPE_E_ELEMENTNOTFOUND">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.NO_OBJECT">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.ERROR_CANCELLED">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_ABANDONEDMUTEX">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_AMBIGUOUSMATCH">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_APPDOMAINUNLOADED">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_APPLICATION">
+ <summary>
+ Error wrapped in <see cref="T:System.ApplicationException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_ARGUMENTOUTOFRANGE">
+ <summary>
+ Error wrapped in <see cref="T:System.ArgumentOutOfRangeException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_ARRAYTYPEMISMATCH">
+ <summary>
+ Error wrapped in <see cref="T:System.ArrayTypeMismatchException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_CANNOTUNLOADAPPDOMAIN">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_CONTEXTMARSHAL">
+ <summary>
+ Error wrapped in <see cref="T:System.ContextMarshalException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_CUSTOMATTRIBUTEFORMAT">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_DATAMISALIGNED">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_DLLNOTFOUND">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_DUPLICATEWAITOBJECT">
+ <summary>
+ Error wrapped in <see cref="T:System.DuplicateWaitObjectException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_ENDOFSTREAM">
+ <summary>
+ Error wrapped in <see cref="T:System.IO.EndOfStreamException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_FILELOAD">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_EXCEPTION">
+ <summary>
+ Error wrapped in <see cref="T:System.Exception"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_EXECUTIONENGINE">
+ <summary>
+ Error wrapped in <see cref="T:System.ExecutionEngineException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_FIELDACCESS">
+ <summary>
+ Error wrapped in <see cref="T:System.FieldAccessException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_FORMAT">
+ <summary>
+ Error wrapped in <see cref="T:System.FormatException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_HOSTPROTECTION">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_INDEXOUTOFRANGE">
+ <summary>
+ Error wrapped in <see cref="T:System.IndexOutOfRangeException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_INSUFFICIENTEXECUTIONSTACK">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_INSUFFICIENTMEMORY">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_INVALIDCAST">
+ <summary>
+ Error wrapped in <see cref="T:System.InvalidCastException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_INVALIDCOMOBJECT">
+ <summary>
+ Error wrapped in <see cref="T:System.Runtime.InteropServices.InvalidComObjectException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_INVALIDFILTERCRITERIA">
+ <summary>
+ Error wrapped in <see cref="T:System.Reflection.InvalidFilterCriteriaException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_INVALIDOLEVARIANTTYPE">
+ <summary>
+ Error wrapped in <see cref="T:System.Runtime.InteropServices.InvalidOleVariantTypeException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_INVALIDOPERATION">
+ <summary>
+ Error wrapped in <see cref="T:System.InvalidOperationException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_IO">
+ <summary>
+ Error wrapped in <see cref="T:System.IO.IOException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_INVALIDPROGRAM">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_KEYNOTFOUND">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_MARSHALDIRECTIVE">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_MEMBERACCESS">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_METHODACCESS">
+ <summary>
+ Error wrapped in <see cref="T:System.MethodAccessException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_MISSINGFIELD">
+ <summary>
+ Error wrapped in <see cref="T:System.MissingFieldException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_MISSINGMANIFESTRESOURCE">
+ <summary>
+ Error wrapped in <see cref="T:System.Resources.MissingManifestResourceException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_MISSINGMEMBER">
+ <summary>
+ Error wrapped in <see cref="T:System.MissingMemberException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_MISSINGMETHOD">
+ <summary>
+ Error wrapped in <see cref="T:System.MissingMethodException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_MISSINGSATELLITEASSEMBLY">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_MULTICASTNOTSUPPORTED">
+ <summary>
+ Error wrapped in <see cref="T:System.MulticastNotSupportedException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_NOTFINITENUMBER">
+ <summary>
+ Error wrapped in <see cref="T:System.NotFiniteNumberException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_NOTSUPPORTED">
+ <summary>
+ Error wrapped in <see cref="T:System.NotSupportedException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_OBJECTDISPOSED">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_OPERATIONCANCELED">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_OVERFLOW">
+ <summary>
+ Error wrapped in <see cref="T:System.OverflowException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_PLATFORMNOTSUPPORTED">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_RANK">
+ <summary>
+ Error wrapped in <see cref="T:System.RankException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_REFLECTIONTYPELOAD">
+ <summary>
+ Error wrapped in <see cref="T:System.Reflection.ReflectionTypeLoadException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_REMOTING">
+ <summary>
+ Error wrapped in <see cref="T:System.Runtime.Remoting.RemotingException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_SERVER">
+ <summary>
+ Error wrapped in <see cref="T:System.Reflection.ReflectionTypeLoadException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_RUNTIMEWRAPPED">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_SAFEARRAYRANKMISMATCH">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_SAFEARRAYTYPEMISMATCH">
+ <summary>
+ Error wrapped in <see cref="T:System.Runtime.InteropServices.SafeArrayTypeMismatchException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_SAFEHANDLEMISSINGATTRIBUTE">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_SECURITY">
+ <summary>
+ Error wrapped in <see cref="T:System.Security.SecurityException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_SEMAPHOREFULL">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_SERIALIZATION">
+ <summary>
+ Error wrapped in <see cref="T:System.Runtime.Serialization.SerializationException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_SYNCHRONIZATIONLOCK">
+ <summary>
+ Error wrapped in <see cref="T:System.Threading.SynchronizationLockException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_SYSTEM">
+ <summary>
+ Error wrapped in <see cref="T:System.SystemException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_TARGET">
+ <summary>
+ Error wrapped in <see cref="T:System.Reflection.TargetException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_TARGETINVOCATION">
+ <summary>
+ Error wrapped in <see cref="T:System.Reflection.TargetInvocationException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_TARGETPARAMCOUNT">
+ <summary>
+ Error wrapped in <see cref="T:System.Reflection.TargetParameterCountException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_THREADABORTED">
+ <summary>
+ Error wrapped in <see cref="T:System.Threading.ThreadAbortException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_THREADINTERRUPTED">
+ <summary>
+ Error wrapped in <see cref="T:System.Threading.ThreadInterruptedException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_THREADSTART">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_THREADSTATE">
+ <summary>
+ Error wrapped in <see cref="T:System.Threading.ThreadStateException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_THREADSTOP">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_TIMEOUT">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_TYPEACCESS">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_TYPEINITIALIZATION">
+ <summary>
+ Error wrapped in <see cref="T:System.TypeInitializationException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_TYPELOAD">
+ <summary>
+ Error wrapped in <see cref="T:System.EntryPointNotFoundException"/> class 
+ and also <see cref="T:System.TypeLoadException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_TYPEUNLOADED">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_UNSUPPORTEDFORMAT">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_VERIFICATION">
+ <summary>
+ Error wrapped in <see cref="T:System.Security.VerificationException"/> class.
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.COR_E_WAITHANDLECANNOTBEOPENED">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.CORSEC_E_CRYPTO">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.CORSEC_E_CRYPTO_UNEX_OPER">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.CORSEC_E_MIN_GRANT_FAIL">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.CORSEC_E_NO_EXEC_PERM">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="F:ElektroKit.Interop.Win32.Enums.HResult.CORSEC_E_POLICY_EXCEPTION">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="T:ElektroKit.Interop.Win32.NativeMethods">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Platform Invocation methods (P/Invoke), access unmanaged code.
+ <para></para>
+ This class does not suppress stack walks for unmanaged code permission.
+ <see cref="T:System.Security.SuppressUnmanagedCodeSecurityAttribute"/> must not be applied to this class.
+ <para></para>
+ This class is for methods that can be used anywhere because a stack walk will be performed.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ <see href="https://msdn.microsoft.com/en-us/library/ms182161.aspx"/>
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.#ctor">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Prevents a default instance of the <see cref="T:ElektroKit.Interop.Win32.NativeMethods"/> class from being created.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.GetHashCode">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Serves as a hash function for a particular type.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.GetType">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets the <see cref="T:System.Type"/> of the current instance.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ The exact runtime type of the current instance.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.Equals(System.Object)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="obj">
+ Another object to compare to.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ <see langword="True"/> if the specified <see cref="T:System.Object"/> is equal to this instance; 
+ otherwise, <see langword="False"/>.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.Equals(System.Object,System.Object)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Determines whether the specified <see cref="T:System.Object"/> instances are considered equal.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="objA">
+ The first object to compare.
+ </param>
+ 
+ <param name="objB">
+ The second object to compare.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ <see langword="True"/> if the objects are considered equal; otherwise, <see langword="False"/>.
+ <para></para>
+ If both <paramref name="objA"/> and <paramref name="objB"/> are <see langword="Nothing"/>, 
+ the method returns <see langword="True"/>.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.ReferenceEquals(System.Object,System.Object)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Determines whether the specified <see cref="T:System.Object"/> instances are the same instance.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="objA">
+ The first object to compare.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <param name="objB">
+ The second object to compare.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ <see langword="True"/> if <paramref name="objA"/> is the same instance as <paramref name="objB"/> 
+ or if both are <see langword="Nothing"/>; otherwise, <see langword="False"/>.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.ToString">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Returns a String that represents the current object.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ A string that represents the current object.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.DwmGetWindowAttribute(System.IntPtr,ElektroKit.Interop.Win32.Enums.DwmWindowAttribute,ElektroKit.Interop.Win32.Types.NativeRectangle@,System.Int32)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Retrieves the current value of a specified attribute applied to a window.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ <see href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa969515%28v=vs.85%29.aspx"/>
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+ <param name="hwnd">
+ The handle to the window from which the attribute data is retrieved.
+ </param>
+ 
+ <param name="attribute">
+ The attribute to retrieve
+ </param>
+ 
+ <param name="refAttribute">
+ A pointer to a value that, when this function returns successfully, receives the current value of the attribute.
+ <para></para>
+ The type of the retrieved value depends on the value of the <paramref name="attribute"/> parameter.
+ </param>
+ 
+ <param name="sizeAttribute">
+ The size of the <see cref="T:ElektroKit.Interop.Win32.Enums.DwmWindowAttribute"/> value being retrieved.
+ <para></para>
+ The size is dependent on the type of the <paramref name="refAttribute"/> parameter.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ If this function succeeds, it returns <see cref="F:ElektroKit.Interop.Win32.Enums.HResult.S_OK"/>. 
+ Otherwise, it returns an HRESULT error code.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.DwmRegisterThumbnail(System.IntPtr,System.IntPtr,System.IntPtr@)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Creates a Desktop Window Manager (DWM) thumbnail relationship between the destination and source windows.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ <see href="https://docs.microsoft.com/en-us/windows/desktop/api/dwmapi/nf-dwmapi-dwmregisterthumbnail"/>
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+ <param name="dstHwnd">
+ The handle to the window that will use the DWM thumbnail. 
+ <para></para>
+ Setting the destination window handle to anything other than a top-level window type will result in a 
+ return value of <see cref="F:ElektroKit.Interop.Win32.Enums.HResult.E_INVALIDARG"/>.
+ </param>
+ 
+ <param name="srcHwnd">
+ The handle to the window to use as the thumbnail source. 
+ <para></para>
+ Setting the source window handle to anything other than a top-level window type will result in a 
+ return value of <see cref="F:ElektroKit.Interop.Win32.Enums.HResult.E_INVALIDARG"/>.
+ </param>
+ 
+ <param name="refThumbnailId">
+ A pointer to a handle that, when this function returns successfully, 
+ represents the registration of the DWM thumbnail.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ If this function succeeds, it returns <see cref="F:ElektroKit.Interop.Win32.Enums.HResult.S_OK"/>. 
+ Otherwise, it returns an <see cref="T:ElektroKit.Interop.Win32.Enums.HResult"/> error code.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.DwmUnregisterThumbnail(System.IntPtr)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Removes a Desktop Window Manager (DWM) thumbnail relationship previously created by the 
+ <see cref="M:ElektroKit.Interop.Win32.NativeMethods.DwmRegisterThumbnail(System.IntPtr,System.IntPtr,System.IntPtr@)"/> function.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ <see href="https://docs.microsoft.com/en-us/windows/desktop/api/dwmapi/nf-dwmapi-dwmunregisterthumbnail"/>
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+ <param name="thumbnailId">
+ The handle to the thumbnail relationship to be removed. 
+ <para></para>
+ A value of <see cref="F:System.IntPtr.Zero"/> or invalid thumbnail handles will result in a return value of 
+ <see cref="F:ElektroKit.Interop.Win32.Enums.HResult.E_INVALIDARG"/>.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ If this function succeeds, it returns <see cref="F:ElektroKit.Interop.Win32.Enums.HResult.S_OK"/>. 
+ Otherwise, it returns an <see cref="T:ElektroKit.Interop.Win32.Enums.HResult"/> error code.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.DwmUpdateThumbnailProperties(System.IntPtr,ElektroKit.Interop.Win32.Types.DwmThumbnailProperties@)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Updates the properties for a Desktop Window Manager (DWM) thumbnail.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ <see href="https://docs.microsoft.com/en-us/windows/desktop/api/dwmapi/nf-dwmapi-dwmupdatethumbnailproperties"/>
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+ <param name="thumbnailId">
+ The handle to the DWM thumbnail to be updated. 
+ <para></para>
+ A value of <see cref="F:System.IntPtr.Zero"/> or invalid thumbnail handles, 
+ as well as thumbnails owned by other processes will result in a return value of <see cref="F:ElektroKit.Interop.Win32.Enums.HResult.E_INVALIDARG"/>.
+ </param>
+ 
+ <param name="refThumbnailProperties">
+ A pointer to a <see cref="T:ElektroKit.Interop.Win32.Types.DwmThumbnailProperties"/> structure that contains the new thumbnail properties.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ If this function succeeds, it returns <see cref="F:ElektroKit.Interop.Win32.Enums.HResult.S_OK"/>. 
+ Otherwise, it returns an <see cref="T:ElektroKit.Interop.Win32.Enums.HResult"/> error code.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.GetWindowRect(System.IntPtr,ElektroKit.Interop.Win32.Types.NativeRectangle@)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Retrieves the dimensions of the bounding rectangle of the specified window. 
+ <para></para>
+ The dimensions are given in screen coordinates that are relative to the upper-left corner of the screen.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ <see href="https://msdn.microsoft.com/es-es/library/windows/desktop/ms633519%28v=vs.85%29.aspx"/>
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+ <param name="hwnd">
+ A <see cref="T:System.IntPtr"/> handle to the window.
+ </param>
+ 
+ <param name="refRect">
+ A pointer to a <see cref="T:ElektroKit.Interop.Win32.Types.NativeRectangle"/> structure that receives the screen coordinates of the 
+ upper-left and lower-right corners of the window.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ <see langword="True"/> if the function succeeds, <see langword="False"/> otherwise.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.IsWindow(System.IntPtr)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Determines whether the specified window handle identifies an existing window.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ <see href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms633528%28v=vs.85%29.aspx"/>
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+ <param name="hwnd">
+ A handle to the window to be tested. 
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ If the window handle identifies an existing window, the return value is <see langword="True"/>.
+ <para></para>
+ If the window handle does not identify an existing window, the return value is <see langword="False"/>.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.Interop.Win32.NativeMethods.IsWindowVisible(System.IntPtr)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Determines the visibility state of the specified window.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <remarks>
+ <see href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms633530%28v=vs.85%29.aspx"/>
+ </remarks>
+ ----------------------------------------------------------------------------------------------------
+ <param name="hwnd">
+ A handle to the window to be tested. 
+ </param>
+ ----------------------------------------------------------------------------------------------------
+ <returns>
+ If the specified window, its parent window, its parent's parent window, and so forth, 
+ have the <c>WS_VISIBLE</c> style, the return value is <see langword="True"/>.
+ <para></para>
+ Otherwise, the return value is <see langword="False"/>.
+ <para></para>
+ Because the return value specifies whether the window has the WS_VISIBLE style, 
+ it may be nonzero even if the window is totally obscured by other windows.
+ </returns>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="T:ElektroKit.UserControls.Designers.ElektroDwmThumbnailDesigner">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Extends the design mode behavior of a <see cref="T:ElektroDwmThumbnail"/> control.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <seealso cref="T:ElektroDwmThumbnail"/>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Designers.ElektroDwmThumbnailDesigner.PreFilterProperties(System.Collections.IDictionary)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Provides design-time support for the <see cref="T:ElektroDwmThumbnail"/> control.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="properties">
+ Ab <see cref="T:System.Collections.IDictionary"/> that contains the properties for the class of the component.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="T:ElektroKit.UserControls.Controls.ElektroDwmThumbnail">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Represents a Desktop Window Manager (DWM) thumbnail that creates a mirror of any window.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="P:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.DefaultSize">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets the default size of the control.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <value>
+ The default size of the control.
+ </value>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="P:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.ThumbnailId">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets the unique identifier of the DWM Thumbnail.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.thumbnailIdB">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ ( Backing Field )
+ <para></para>
+ The unique identifier of the DWM Thumbnail.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="P:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.WindowHandle">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets the window handle (hWnd) of the window shown in the DWM Thumbnail.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.windowHandleB">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ ( Backing Field )
+ <para></para>
+ The window handle (hWnd) of the window shown in the DWM Thumbnail.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="P:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.IsThumbnailRegistered">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets a value that determine whether the DWM thumbnail is registered.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="P:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.KeepAspectRatio">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets a value that determine whether the window shown in the DWM thumbnail should maintain aspect ratio.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.keepAspectRatioB">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ ( Backing Field )
+ A value that determine whether the window shown in the DWM thumbnail should maintain aspect ratio.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="P:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.NonClientAreaVisible">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets a value that determine whether the window shown in the DWM thumbnail should display its non-client area.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.nonClientAreaVisibleB">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ ( Backing Field )
+ A value that determine whether the window shown in the DWM thumbnail should display its non-client area.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="P:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.Opacity">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets or sets the opacity level of the control.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <value>
+ The opacity level of the control.
+ </value>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.opacityB">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ ( Backing Field )
+ The opacity level of the control.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="P:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.Offset">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets a value that determine the offsets of X and Y coordinates when drawing the DWM thumbnail.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.#ctor">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Initializes a new instance of the <see cref="T:ElektroKit.UserControls.Controls.ElektroDwmThumbnail"/> class.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.OnLoad(System.EventArgs)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Raises the <see cref="E:System.Windows.Forms.UserControl.Load"/> event.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="e">
+ An <see cref="T:System.EventArgs"/> that contains the event data.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.OnParentChanged(System.EventArgs)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Raises the <see cref="E:System.Windows.Forms.Control.ParentChanged"/> event.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="e">
+ An <see cref="T:System.EventArgs"/> that contains the event data.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.OnPaint(System.Windows.Forms.PaintEventArgs)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Raises the <see cref="E:System.Windows.Forms.Control.Paint"/> event.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="e">
+ An <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.OnSizeChanged(System.EventArgs)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Raises the <see cref="E:System.Windows.Forms.Control.SizeChanged"/> event.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="e">
+ An <see cref="T:System.EventArgs"/> that contains the event data.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.OnLocationChanged(System.EventArgs)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Raises the <see cref="E:System.Windows.Forms.Control.LocationChanged"/> event.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="e">
+ An <see cref="T:System.EventArgs"/> that contains the event data.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.OnVisibleChanged(System.EventArgs)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Raises the <see cref="E:System.Windows.Forms.Control.VisibleChanged"/> event.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="e">
+ An <see cref="T:System.EventArgs"/> that contains the event data.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.ParentForm_LocationChanged(System.Object,System.EventArgs)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Handles the <see cref="E:System.Windows.Forms.Control.LocationChanged"/> event of the <see cref="P:System.Windows.Forms.ContainerControl.ParentForm"/> control.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="sender">
+ The source of the event.
+ </param>
+ 
+ <param name="e">
+ The <see cref="T:System.EventArgs"/> instance containing the event data.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.ParentForm_SizeChanged(System.Object,System.EventArgs)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Handles the <see cref="E:System.Windows.Forms.Control.SizeChanged"/> event of the <see cref="P:System.Windows.Forms.ContainerControl.ParentForm"/> control.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="sender">
+ The source of the event.
+ </param>
+ 
+ <param name="e">
+ The <see cref="T:System.EventArgs"/> instance containing the event data.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.RegisterThumbnail(System.Int32)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Creates a Desktop Window Manager (DWM) thumbnail that mirrors the specified window.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="pid">
+ The process identifier that owns the window.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.RegisterThumbnail(System.Diagnostics.Process)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Creates a Desktop Window Manager (DWM) thumbnail that mirrors the specified window.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="process">
+ The <see cref="T:System.Diagnostics.Process"/> that owns the window.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.RegisterThumbnail(System.Nullable{System.IntPtr})">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Creates a Desktop Window Manager (DWM) thumbnail that mirrors the specified window.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="hwnd">
+ A handle to the window.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.UnregisterThumbnail">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Unregisters the Desktop Window Manager (DWM) thumbnail.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.GetThumbnailRectangle">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets the <see cref="T:System.Drawing.Rectangle"/> for the DWM thumbnail.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.UpdateThumbnail">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Renews the location, size and opacity of the registered DWM thumbnail.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ElektroKit.UserControls.Controls.ElektroDwmThumbnail.Dispose(System.Boolean)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+ Releases unmanaged and, optionally, managed resources.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="isDisposing">
+ <see langword="True"/>  to release both managed and unmanaged resources; 
+ <see langword="False"/> to release only unmanaged resources.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+</members>
+</doc>

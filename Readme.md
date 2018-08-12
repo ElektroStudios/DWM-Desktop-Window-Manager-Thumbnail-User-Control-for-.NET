@@ -28,7 +28,7 @@ Usage example in VB.NET:
 
 Available properties in the control's property grid:
 
-[![demoapplication](https://i.imgur.com/kApXj4o.png) 
+[!(https://i.imgur.com/kApXj4o.png)]
 
 This user-control is shared for free as part of the commercial ElektroKit Framework for .NET, which you can buy from here: 
 

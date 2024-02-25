@@ -30,14 +30,6 @@ winforms
 
 **ElektroDwmThumbnail** is a .NET user-control written in VB.NET that enables the creation of dynamic real-time preview thumbnails for any window. It utilizes various DWM API functions and is provided as a user-control for easy and user-friendly implementation.
 
-## 👌 Features
-
-FEATURES TEXT
-
-## 🖼️ Screenshots
-
-![screenshot](/Images/screenshot.png)
-
 ## 🎦 Videos
 
 See a recorded video by clicking on the following button:
@@ -49,7 +41,7 @@ See a recorded video by clicking on the following button:
 
 ## 🤖 Getting Started
 
-Download the latest source-code by clicking [here](https://github.com/ElektroStudios/DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET/releases/latest),
+Download the latest release by clicking [here](https://github.com/ElektroStudios/DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET/releases/latest), and use it in Visual Studio.
 
 Usage example in C#:
 

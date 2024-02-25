@@ -1,10 +1,55 @@
-﻿# **ElektroDwmThumbnail**
+﻿<!-- Common Project Tags:
+command-line 
+console-applications 
+desktop-app 
+desktop-application 
+dotnet 
+dotnet-core 
+netcore 
+netframework 
+netframework48 
+tool 
+tools 
+vbnet 
+visualstudio 
+windows 
+windows-app 
+windows-application 
+windows-applications 
+windows-forms 
+winforms 
+ -->
 
-**ElektroDwmThumbnail** is a .NET user-control written in VB.NET that can be used to create a dynamic real-time preview thumbnail for any window. It wraps some DWM API functions and is delivered as a user-control for friendly use.
+# ElektroDwmThumbnail
 
-See the video below if you have any doubts...
+### An user control for .NET providing DWM (Desktop Window Manager) thumbnail functionalities
 
+------------------
+
+## 👋 Introduction
+
+**ElektroDwmThumbnail** is a .NET user-control written in VB.NET that enables the creation of dynamic real-time preview thumbnails for any window. It utilizes various DWM API functions and is provided as a user-control for easy and user-friendly implementation.
+
+## 👌 Features
+
+FEATURES TEXT
+
+## 🖼️ Screenshots
+
+![screenshot](/Images/screenshot.png)
+
+## 🎦 Videos
+
+See a recorded video by clicking on the following button:
 [![demoapplication](https://img.youtube.com/vi/fy3MLMpEUTg/0.jpg)](https://www.youtube.com/watch?v=fy3MLMpEUTg) 
+
+## 📝 Requirements
+
+- Visual Studio.
+
+## 🤖 Getting Started
+
+Download the latest source-code by clicking [here](https://github.com/ElektroStudios/DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET/releases/latest),
 
 Usage example in C#:
 
@@ -30,25 +75,31 @@ Available properties in the control's property grid:
 
 [![properties](https://i.imgur.com/kApXj4o.png) 
 
-# **Donations**
+## ⚠️ Disclaimer:
 
-##### Through Paypal:
-If you like my work and want to support it, then please consider to deposit a donation through **Paypal** by clicking on the next button:
+This Work (the repository and the content provided in) is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the Work or the use or other dealings in the Work.
 
-[![Donation Account](Images/Paypal.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E4RQEV6YF5NZY)
+## 💪 Contributing
 
-[![Donation Amount](https://img.shields.io/badge/Current%20donations-0%24-red.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E4RQEV6YF5NZY)
+Your contribution is highly appreciated!. If you have any ideas, suggestions, or encounter issues, feel free to open an issue by clicking [here](https://github.com/ElektroStudios/DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET/issues/new/choose). 
 
-You are free to specify whatever amount of money you wish. That money will be sent to my **Paypal** account.
+Your input helps make this Work better for everyone. Thank you for your support! 🚀
 
-##### Through Envato:
-If you are a .NET programmer, then maybe you would like to consider the purchase of 
-'**DevCase for .NET Framework**', a powerful set of APIs for .NET developers, created by me. 
+## 💰 Beyond Contribution 
 
-You can click the next button to go to the product specifications and the purchase page:
+This work is distributed for educational purposes and without any profit motive. However, if you find value in my efforts and wish to support and motivate my ongoing work, you may consider contributing financially through the following options:
 
-[![DevCase for .NET Framework](Images/DevCase%20Banner.png)](https://codecanyon.net/item/elektrokit-class-library-for-net/19260282)
+ - ### Paypal:
+    You can donate any amount you like via **Paypal** by clicking on this button:
 
-Note that any source-code within the namespace 'DevCase' included in this **GitHub** repository, was freely extracted and distributed from the commercial library '**DevCase for .NET Framework**'.
+    [![Donation Account](Images/Paypal_Donate.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E4RQEV6YF5NZY)
 
-<u>**Thanks in advance for your consideration!**</u> :thumbsup:
+ - ### Envato Market:
+   If you are a .NET developer, you may want to explore '**DevCase Class Library for .NET**', a huge set of APIs that I have on sale.
+   Almost all reusable code that you can find across my works is condensed, refined and provided through DevCase Class Library.
+
+    Check out the product:
+    
+   [![DevCase Class Library for .NET](Images/DevCase_Banner.png)](https://codecanyon.net/item/elektrokit-class-library-for-net/19260282)
+
+<u>**Your support means the world to me! Thank you for considering it!**</u> 👍

@@ -27,7 +27,6 @@ winforms
 ------------------
 
 <p align="center">
-    <a href="https://sonarcloud.io/summary/new_code?id=ElektroStudios_DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET"><img src="https://sonarcloud.io/api/project_badges/measure?project=ElektroStudios_DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET&metric=alert_status" alt="SonarCloud Quality Gate"></a>
     <a href="https://github.com/ElektroStudios/DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET/network/members"><img src="https://img.shields.io/github/forks/ElektroStudios/DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%F0%9F%8D%B4%20Forks" alt="Forks"></a>&nbsp;
     <a href="https://github.com/ElektroStudios/DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET/graphs/contributors"><img src="https://img.shields.io/github/contributors/ElektroStudios/DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%F0%9F%91%A5%20Contributors" alt="Contributors"></a>&nbsp;
     <a href="https://github.com/ElektroStudios"><img src="https://img.shields.io/github/followers/ElektroStudios.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%F0%9F%91%A4%20Followers" alt="Followers"></a>&nbsp;
@@ -36,6 +35,7 @@ winforms
     <a href="https://github.com/ElektroStudios/DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET/stargazers"><img src="https://img.shields.io/github/stars/ElektroStudios/DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%E2%AD%90%20Stars" alt="Stars"></a>
   <br>
   <br>
+    <a href="https://sonarcloud.io/summary/new_code?id=ElektroStudios_DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET"><img src="https://sonarcloud.io/api/project_badges/measure?project=ElektroStudios_DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET&metric=alert_status" alt="SonarCloud Quality Gate"></a>
     <a href="https://github.com/ElektroStudios/DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET/releases/latest"><img src="https://img.shields.io/github/v/release/ElektroStudios/DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET" alt="Latest Release"></a>
     <a href="https://learn.microsoft.com/en-us/dotnet/visual-basic/"><img src="https://img.shields.io/badge/language-VB.NET-purple.svg?logo=visualbasic" alt="Language"></a>
     <a href="License.md"><img src="https://img.shields.io/github/license/ElektroStudios/DWM-Desktop-Window-Manager-Thumbnail-User-Control-for-.NET" alt="License"></a>
